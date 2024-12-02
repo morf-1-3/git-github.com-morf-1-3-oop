@@ -1,0 +1,1 @@
+& c:/Users/38095/Desktop/oop/.venv/Scripts/python.exe "c:/Users/38095/Desktop/oop/lesson 8/claas.py"

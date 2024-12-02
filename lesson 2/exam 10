@@ -1,0 +1,44 @@
+from datetime import date
+
+
+class MyClass1:
+    adults_count = 0
+    def __init__(self, surname, name, age : int):
+        self.surname = surname
+        self.name = name
+        self.age = int(age)
+        self.adults_count += 1
+        if(self.isAdult(age)):
+            MyClass1.adults_count += 1
+
+    @classmethod
+    def fromBirthYear(cls, surname, name, birthYear):
+        return cls(surname, name, date.today().year - birthYear)
+    
+    @staticmethod
+    def isAdult(age : int) -> bool:
+        if (age >= 18):
+            return True
+        else:
+            return False
+    @classmethod
+    def count_adults(cls) -> int:
+        return cls.adults_count
+
+    def print_info(self):
+        print(self.surname + " " + self.name + "'s age is: " + str(self.age))
+
+
+class MyClass2(MyClass1):
+    color = 'White'
+
+
+m_per1 = MyClass1('Ivanenko', 'Ivan', 19)
+m_per1.print_info()
+
+m_per2 = MyClass1.fromBirthYear('Dovzhenko', 'Bogdan',  2000)
+m_per2.print_info()
+
+print(MyClass1.isAdult(int(19)))
+print(m_per1.count_adults())
+
